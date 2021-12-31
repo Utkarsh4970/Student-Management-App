@@ -1,11 +1,15 @@
 
 
+import { Admin } from './components/Admin/Admin';
+import { Contest } from './components/Contest/Contest';
 import { SignUpForm4 } from './components/studentform';
 
 function App() {
   return (
     <div className="App">
-     <SignUpForm4 />
+      <Admin/>
+      {/* <Contest/> */}
+     {/* <SignUpForm4 /> */}
     </div>
   );
 }
