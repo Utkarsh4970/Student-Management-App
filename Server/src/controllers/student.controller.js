@@ -39,13 +39,31 @@
 //     }
 // }
 // module.exports={register,login,newtoken}
-const express=require("express");
-const router=express.Router();
-const Student=require("../models/student.model");
+const express = require("express");
+const router = express.Router();
+const Student = require("../models/student.model");
 
-router.post("/",async function(req,res){
-    const students=await Student.create(req.body);
+router.post("/", async function (req, res) {
+    const students = await Student.create(req.body);
     return res.send(students);
 })
 
-module.exports=router;
+router.get("/", async function (req, res) {
+    const students = await Student.find().lean().exec();
+    return res.status(200).send({ students });
+})
+
+
+router.delete("/:id", async function (req, res) {
+
+    try {
+        const students = await Student.findByIdAndDelete(req.params.id);
+        // console.log(req.params.id)
+        return res.status(201).send({ students });
+    }
+    catch (err) {
+        console.log(err.message)
+    }
+})
+
+module.exports = router;
