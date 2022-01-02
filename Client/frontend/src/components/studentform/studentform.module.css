@@ -1,9 +1,12 @@
+/* body{
+  background-color: darkgreen;
+} */
 .card4main {
   background-color: chocolate;
     width: 35.77vw;
-    height: 90.67vh;
-    margin: 7.22vh auto 9.03vh auto;
-   
+    height: 95.67vh;
+    margin: auto;
+   margin-bottom: 50px;
     /* background-color: #ffffff; */
   
     box-shadow: -8px 0px 20px rgba(135, 135, 135, 0.25),

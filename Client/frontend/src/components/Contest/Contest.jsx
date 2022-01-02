@@ -2,10 +2,12 @@
 import { useState } from "react";
 import axios from "axios";
 import styles from "./Contest.module.css";
+import { Redirect } from "react-router-dom";
 
 export const Contest = ({ prev, next }) => {
 
     const [c_data, setC_data] = useState({});
+    const[status,setStatus]= useState();
 
 
     const handlechange = (e) => {
@@ -30,7 +32,10 @@ export const Contest = ({ prev, next }) => {
         // }
         axios.post('http://localhost:2244/contests',
             c_data
-        )
+        ).then((res)=>{
+           // console.log("status",res.status)
+            return setStatus(res.status)
+        }).catch((err)=>(setStatus("no")))
         console.log(c_data)
         //   .then(getdata)
         //   .then(function (response) {
@@ -48,7 +53,10 @@ export const Contest = ({ prev, next }) => {
 
     }
 
-    return (
+    return status === 200 ? (
+        <Redirect to="/" />
+          
+      ) : (
         <div className={styles.main}>
             <h2>Create Contest</h2>
             <div className={styles.container}>

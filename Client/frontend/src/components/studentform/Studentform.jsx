@@ -2,10 +2,12 @@
 import { useState } from "react";
 import axios from "axios";
 import styles from "./studentform.module.css";
+import { Redirect } from "react-router-dom";
 
 export const Studentform = ({ prev, next }) => {
     // const [text, setText] = useState("");
     const [formdata,setFormdata]=useState({});
+    const [status,setStatus]=useState();
 
 
     const handlechange = (e) => {
@@ -22,13 +24,18 @@ export const Studentform = ({ prev, next }) => {
     const handlesubmit = (e) => {
             e.preventDefault();
             console.log(formdata);
+
             // if(e.target[0].value.length == 0 || e.target[1].value.length == 0){
             //     alert("Details Should Not be Empty")
             // }else{
             // }
             axios.post('http://localhost:2244/students', 
              formdata
-          )
+            )
+          .then((res)=>{
+              console.log("status",res.status)
+              return setStatus(res.status)
+          }).catch((err)=>(setStatus("no")))
         //   .then(getdata)
         //   .then(function (response) {
         //     //   getdata()
@@ -47,13 +54,16 @@ export const Studentform = ({ prev, next }) => {
     
 
 
-    return (
-        <div style={{ backgroundColor: "green", width: "100%", height: "100%" }}>
+    return status === 200 ? (
+        <Redirect to="/access" />
+          
+      ) : (
+        <div >
             <form onSubmit={handlesubmit}>
                 <h1 style={{ textAlign: "center" }}>Student Signup Form</h1>
                 <div className={styles.card4main}>
                     <div className={styles.inputbox}>
-                        <div style={{ display: "flex", gap: "20px" }}>
+                        <div style={{ display: "flex",alignItems:"center", gap: "20px" }}>
                             <h3>Enter your name</h3>
                             <input onChange={handlechange} name="name"
                                 placeholder={"Enter your name"} type={"text"} />
@@ -101,7 +111,8 @@ export const Studentform = ({ prev, next }) => {
                                 type={"text"} placeholder={"contact"} />
                         </div>
                     </div>
-                    <div >
+                    <div>
+                        
                         <input className={styles.back4} type={"submit"} value={"submit"} />
                     </div>
                 </div>

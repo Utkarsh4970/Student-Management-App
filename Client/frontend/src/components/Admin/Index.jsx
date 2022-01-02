@@ -1,10 +1,10 @@
 
-import { Studentform } from "./Studentform";
+import { Admin } from "./Admin";
 
-export const SignUpForm4 = ({ prev, next }) => {
+export const Admin_page = ({ next1,next2,next3 }) => {
   return (
     <div>
-      <Studentform prev={prev} next={next} />
+      <Admin next1={next1} next2={next2} next3={next3} />
     </div>
   );
 };

@@ -1,10 +1,11 @@
 
-import { Studentform } from "./Studentform";
+import { Contest } from "./Contest";
 
-export const SignUpForm4 = ({ prev, next }) => {
+
+export const Contest_page = ({ prev, next }) => {
   return (
     <div>
-      <Studentform prev={prev} next={next} />
+      <Contest prev={prev} next={next} />
     </div>
   );
 };
