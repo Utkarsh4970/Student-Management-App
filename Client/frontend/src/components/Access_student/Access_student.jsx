@@ -91,8 +91,8 @@ export const Access = ({ prev, next }) => {
 
         <div className={styles.main}>
             <div>
-                <button onClick={handlename}>Sort By Name</button>
-                <button onClick={handleage}>Sort By Age</button>
+                <button className={styles.name} onClick={handlename}>Sort By Name</button>
+                <button className={styles.age} onClick={handleage}>Sort By Age</button>
             </div>
             
             <div className={styles.contest_p}>

@@ -4,7 +4,7 @@ import axios from "axios";
 import styles from "./Admin.module.css";
 import { Link } from "react-router-dom";
 
-export const Admin = ({ next1,next2,next3 }) => {
+export const Admin = ({ next1,next2,next3,next4 }) => {
 
     const [c_data, setC_data] = useState([]);
 
@@ -53,7 +53,7 @@ export const Admin = ({ next1,next2,next3 }) => {
                 <Link to={next3}>
                 <button className={styles.back4}> Access Students</button>
                 </Link>
-                <div className={styles.back4} style={{ marginLeft: "500px", textAlign: "center" }}>Mail of Admin</div>
+                <div className={styles.back4} style={{ marginLeft: "500px", textAlign: "center" }}>{next4}</div>
             </div>
             <div className={styles.contest_p}>
                 {

@@ -9,13 +9,26 @@ import { Contest_page } from './components/Contest';
 import { Contest } from './components/Contest/Contest';
 import { SignUpForm4, Student_form } from './components/studentform';
 import { Login_page } from './components/Login';
+import { useState } from "react";
+
+
 
 function App() {
+
+  const [em,setEm]=useState();
+  let email=(pre)=>{
+    setEm(pre)
+    //console.log("pre",pre)
+    }
+
   return (
     <div className="App">
  <Switch>
         <Route exact path="/">
-          <Admin_page next1={"/contest"} next2={"/student"} next3={"/access"} />
+          <Login_page prev={email}/>
+        </Route>
+        <Route exact path="/admin">
+          <Admin_page next1={"/contest"} next2={"/student"} next3={"/access"} next4={em} />
         </Route>
         <Route exact path="/contest">
           <Contest_page />

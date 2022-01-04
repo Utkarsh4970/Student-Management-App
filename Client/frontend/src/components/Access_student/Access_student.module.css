@@ -42,7 +42,23 @@
     justify-content: space-between;
     gap: 20px;
   }
-  .remove {
+  .name,.age {
+    margin-left: 10px;
+    border: 1px solid #0066ee;
+    
+    box-sizing: border-box;
+    border-radius: 4px;
+    background: #ffffff;
+   
+    font-size: 1.3177159590043923vw;
+    width: 9.298682284040996vw;
+    height: 4.437768240343348vh;
+    color: #0066ee;
+  
+    transition: 0.3s ease-out;
+  }
+
+  .remove,.name,.age {
     margin-left: 200px;
     border: 1px solid #0066ee;
     box-sizing: border-box;
@@ -58,6 +74,16 @@
   }
   .remove:hover {
     background-color: #d40700;
+    border: 1px solid #7d7f83;
+    color: white;
+  }
+  .name:hover {
+    background-color: #0826d1;
+    border: 1px solid #7d7f83;
+    color: white;
+  }
+  .age:hover {
+    background-color: #0826d1;
     border: 1px solid #7d7f83;
     color: white;
   }
